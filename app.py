@@ -275,28 +275,28 @@ def main():
         corr = corr_matrix(ret_sel)
         st.dataframe(corr)
         fig = _heatmap_fig(corr, "Correlation Heatmap")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         _fig_to_download(fig, f"{dataset}_corr_heatmap_selected.html")
 
         st.subheader("归一化价格走势")
         fig2 = _price_fig(close_sel, "Normalized Prices")
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
         _fig_to_download(fig2, f"{dataset}_prices_selected.html")
 
         st.subheader("收益率分布 KDE")
         fig3 = _kde_fig(ret_sel, "Returns KDE")
-        st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig3, width='stretch')
         _fig_to_download(fig3, f"{dataset}_returns_kde_selected.html")
 
         st.subheader("30天滚动波动率（年化）")
         fig4 = _rolling_vol_fig(ret_sel, "Rolling Volatility (30D)")
-        st.plotly_chart(fig4, use_container_width=True)
+        st.plotly_chart(fig4, width='stretch')
         _fig_to_download(fig4, f"{dataset}_rolling_vol_selected.html")
 
         st.subheader("夏普比率图（年化收益率 vs 年化波动率）")
         metrics = annual_metrics(ret_sel)
         fig5 = _sharpe_fig(metrics, "Sharpe Ratio Plot")
-        st.plotly_chart(fig5, use_container_width=True)
+        st.plotly_chart(fig5, width='stretch')
         _fig_to_download(fig5, f"{dataset}_sharpe_plot_selected.html")
 
     with tab3:
@@ -325,7 +325,7 @@ def main():
         w_base = _recommend_weights(models, dataset, risk)
         w = _renorm_subset(w_base, selected)
         figw = _weight_fig(w, f"Weights ({dataset}, {risk}风险)")
-        st.plotly_chart(figw, use_container_width=True)
+        st.plotly_chart(figw, width='stretch')
         _fig_to_download(figw, f"{dataset}_weights_{risk}_selected.html")
 
         order = [s for s in symbols_all if s in set(selected)]
