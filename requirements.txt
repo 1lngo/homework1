@@ -1,7 +1,7 @@
 # 必须指定streamlit
-streamlit==1.30.0
+streamlit==1.32.0
 # 其他依赖包（与Python 3.13兼容的版本）
-pandas==2.1.4
+pandas==2.2.2
 numpy==1.26.4
 matplotlib==3.8.4
 seaborn==0.13.2
